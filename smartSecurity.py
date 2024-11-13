@@ -34,24 +34,54 @@ Additional Requirements:
 Create inputs for each sensor using the input() function to allow the user to provide answers for each sensor's state.
 Use these inputs to call the is_building_secure function.
 '''
+def isBuildingSecure(doorsLocked, windowsClosed, alarmArmed, motionDetected, securityBreac):
+    # Test inputs
+    if doorsLocked == "True" and windowsClosed == "True" and alarmArmed == "True" and motionDetected == "True" and securityBreach == "True":
+    # if (doorsLocked and windowsClosed and alarmArmed and motionDetected and securityBreach):
+        # print("The building is secure!!")
+        return True
+    else:
+        return False
 
-doorsLocked = input("Are the doors locked? Type True or False: ").strip().capitalize()
+print("\n\n\n############################################################")
+print("##                                                        ##")
+print("##       Welcome to the Seaway Security System            ##")
+print("##                                                        ##")
+print("############################################################\n\n\n")
 
-# sensor_windows_closed
-# sensor_alarm_armed
-# sensor_motion_detected
-# sensor_security_breach
 
-windowsClosed = input("Are the windows closed? Type True or False: ").strip().capitalize()
-alarmArmed = input("Is the alarm system armed? Type True of False: ").strip().capitalize()
-motionDetected = input("Has motion been detected? Type True of False: ").strip().capitalize()
-securityBreach = input("Has their been a security breach? Type True of False: ").strip().capitalize()
+startQues = input("Do you need to make any changes to the system? Y or N: ").strip().capitalize()
 
-# Test inputs
-if doorsLocked == "True" and windowsClosed == "True" and alarmArmed == "True" and motionDetected == "True" and securityBreach == "True":
-# if (doorsLocked and windowsClosed and alarmArmed and motionDetected and securityBreach):
-    print("The building is secure!!")
+
+if startQues == "Y":
+    print("\n\n\nCheck the following systems:\n\n")
+    doorsLocked = input("Are the doors locked? Type True or False: ").strip().capitalize()
+    windowsClosed = input("Are the windows closed? Type True or False: ").strip().capitalize()
+    alarmArmed = input("Is the alarm system armed? Type True of False: ").strip().capitalize()
+    motionDetected = input("Has motion been detected? Type True of False: ").strip().capitalize()
+    securityBreach = input("Has their been a security breach? Type True of False: ").strip().capitalize()
+
+    buildingSecure = isBuildingSecure(doorsLocked, windowsClosed, alarmArmed, motionDetected, securityBreach)
+    if buildingSecure == True:
+        print("\n\n\n=========================================")
+        print("=                                       =")
+        print("=   The building is currently secure.   =")
+        print("=                                       =")
+        print("=========================================\n\n\n")
+    else:
+        print("\n\n\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        print("++                                                               ++")
+        print("++     There is a warning alarm! Please recheck all systems.     ++")
+        print("++                                                               ++")
+        print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n\n")   
+        
+elif startQues == "N":
+    print("\n\n\n############################################################")
+    print("##                                                        ##")
+    print("##                  Have a Great Day                      ##")
+    print("##                                                        ##")
+    print("############################################################\n\n\n")
 else:
-    print("Warning: Alarm Triggered!!")
-    
-# now create the function is_building_secure
+    print("You input the wrong data. Please try again.")
+
+
